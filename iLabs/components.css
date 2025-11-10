@@ -1,0 +1,104 @@
+/* --------------------------------------------------------------------- */
+/*  Imtiaz Lab UI System (iLab)  –  world-class generative components    */
+/*  Author: Imtiaz Lab                                                   */
+/*  URL: https://github.com/imtiaz-lab/ilab                              */
+/* --------------------------------------------------------------------- */
+:root{
+  /* ----- core swatches ----- */
+  --iLab-primary:#a000ff;
+  --iLab-accent:#ff00aa;
+  --iLab-bg:#08001c;
+  --iLab-surface:#110033;
+  --iLab-glow:rgba(255,0,200,.3);
+  --iLab-text:#f0f0f0;
+  --iLab-mono:SFMono-Regular,'Courier New',monospace;
+  /* ----- theme overrides ----- */
+  --iLab-purple:linear-gradient(135deg,#a000ff 0%,#6f00ff 100%);
+  --iLab-blue:linear-gradient(135deg,#0066ff 0%,#00c2ff 100%);
+  --iLab-green:linear-gradient(135deg,#00ff87 0%,#00d4ff 100%);
+  --iLab-sunset:linear-gradient(135deg,#ff7e5f 0%,#feb47b 100%);
+  --iLab-neon:linear-gradient(135deg,#ff00c1 0%,#9600ff 50%,#4900ff 100%);
+  --iLab-midnight:#000;
+  /* ----- metrics ----- */
+  --iLab-radius:12px;
+  --iLab-shadow:0 8px 32px rgba(0,0,0,.38);
+  --iLab-blur:blur(20px);
+}
+/* ----- reset ----- */
+*{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+body{background:var(--iLab-bg);color:var(--iLab-text);line-height:1.5}
+/* ----- layout helpers ----- */
+.iLab-flex{display:flex;gap:var(--gap,1rem)}
+.iLab-grid{display:grid;gap:var(--gap,1rem)}
+.iLab-responsive{max-width:100%;display:block}
+/* ----- buttons ------------------------------------------------------- */
+.iLab-btn{display:inline-flex;align-items:center;justify-content:center;padding:.75rem 1.5rem;border-radius:var(--iLab-radius);font-weight:600;cursor:pointer;transition:.3s ease;border:none;outline:none}
+.iLab-btn-solid{background:var(--iLab-primary);color:#fff}
+.iLab-btn-ghost{background:transparent;color:var(--iLab-primary);border:2px solid var(--iLab-primary)}
+.iLab-btn-neon{background:var(--iLab-neon);color:#fff;box-shadow:0 0 20px var(--iLab-glow)}
+.iLab-btn-outline{background:transparent;color:var(--iLab-text);border:2px solid var(--iLab-text)}
+.iLab-btn-animated{position:relative;overflow:hidden}
+.iLab-btn-animated::after{content:'';position:absolute;top:50%;left:50%;width:0;height:0;background:rgba(255,255,255,.3);border-radius:50%;transform:translate(-50%,-50%);transition:width .6s,height .6s}
+.iLab-btn-animated:active::after{width:300px;height:300px}
+/* ----- cards --------------------------------------------------------- */
+.iLab-card{border-radius:var(--iLab-radius);background:var(--iLab-surface);box-shadow:var(--iLab-shadow);backdrop-filter:var(--iLab-blur);-webkit-backdrop-filter:var(--iLab-blur);padding:1.5rem;transition:.3s ease}
+.iLab-card-f1{border-left:4px solid var(--iLab-primary)}
+.iLab-card-f2{border-top:4px solid var(--iLab-accent)}
+.iLab-card-f3{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1)}
+.iLab-card-f4{clip-path:polygon(0 0,100% 0,100% calc(100% - 20px),calc(100% - 20px) 100%,0 100%)}
+.iLab-card-f5{position:relative;overflow:hidden}
+.iLab-card-f5::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:var(--iLab-neon);opacity:.15;transform:rotate(30deg);pointer-events:none}
+.iLab-card-f6{border-radius:0;box-shadow:inset 0 0 0 2px var(--iLab-primary)}
+/* ----- headers ------------------------------------------------------- */
+.iLab-header{width:100%;padding:1rem 2rem;display:flex;align-items:center;gap:1rem}
+.iLab-header-f1{justify-content:center}
+.iLab-header-f2{justify-content:space-between}
+.iLab-header-f3{justify-content:center;border-bottom:1px solid rgba(255,255,255,.1)}
+.iLab-header-f4 .iLab-icon{margin-right:.5rem}
+.iLab-header-f5{position:sticky;top:0;z-index:999;background:rgba(0,0,0,.5);backdrop-filter:var(--iLab-blur)}
+/* ----- navs ---------------------------------------------------------- */
+.iLab-nav-top,.iLab-nav-bottom{display:flex;align-items:center;padding:.75rem 1rem;gap:1rem;background:var(--iLab-surface);box-shadow:var(--iLab-shadow)}
+.iLab-nav-top-f1{justify-content:center}
+.iLab-nav-top-f2{justify-content:space-between}
+.iLab-nav-top-f3{border-radius:var(--iLab-radius) var(--iLab-radius) 0 0}
+.iLab-nav-bottom{position:fixed;bottom:0;left:0;right:0;z-index:1000}
+.iLab-nav-bottom-f1{justify-content:space-around}
+.iLab-nav-bottom-f2{justify-content:center;gap:2rem}
+.iLab-nav-bottom-f3{border-radius:50px;margin:.5rem;background:rgba(0,0,0,.7)}
+.iLab-nav-item{display:flex;flex-direction:column;align-items:center;font-size:.75rem;gap:.25rem;cursor:pointer;transition:.3s}
+.iLab-nav-item:hover{transform:translateY(-4px)}
+/* ----- charts -------------------------------------------------------- */
+.iLab-chart{position:relative;width:100%;height:200px;background:rgba(255,255,255,.03);border-radius:var(--iLab-radius);overflow:hidden}
+.iLab-chart-bars{display:flex;align-items:flex-end;justify-content:space-around;height:100%;padding:.5rem}
+.iLab-chart-bar{min-width:20px;background:var(--iLab-primary);border-radius:4px 4px 0 0;transition:.3s}
+.iLab-chart-line{stroke:var(--iLab-accent);stroke-width:3;fill:none}
+.iLab-chart-pie{filter:drop-shadow(0 0 10px var(--iLab-glow))}
+/* ----- panels -------------------------------------------------------- */
+.iLab-panel{padding:1.5rem;border-radius:var(--iLab-radius);background:var(--iLab-surface);box-shadow:var(--iLab-shadow)}
+.iLab-panel-f1{border-left:4px solid var(--iLab-green)}
+.iLab-panel-f2{display:flex;justify-content:space-between;align-items:center}
+.iLab-panel-f3{text-align:center}
+.iLab-panel-f4{clip-path:polygon(0 0,100% 0,100% calc(100% - 30px),calc(100% - 30px) 100%,0 100%)}
+/* ----- inputs -------------------------------------------------------- */
+.iLab-input{display:block;width:100%;padding:.75rem 1rem;border-radius:var(--iLab-radius);border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.05);color:var(--iLab-text);transition:.3s}
+.iLab-input:focus{outline:none;border-color:var(--iLab-primary);box-shadow:0 0 10px var(--iLab-glow)}
+.iLab-slider{-webkit-appearance:none;width:100%;height:6px;border-radius:3px;background:rgba(255,255,255,.1);outline:none}
+.iLab-slider::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--iLab-accent);cursor:pointer}
+.iLab-toggle{position:relative;width:44px;height:24px;background:rgba(255,255,255,.2);border-radius:12px;cursor:pointer}
+.iLab-toggle::after{content:'';position:absolute;top:2px;left:2px;width:20px;height:20px;background:#fff;border-radius:50%;transition:.3s}
+.iLab-toggle.active{background:var(--iLab-primary)}
+.iLab-toggle.active::after{left:22px}
+/* ----- effects ------------------------------------------------------- */
+.iLab-hover:hover{transform:translateY(-4px) scale(1.02)}
+.iLab-pulse{animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.6}}
+.iLab-float{animation:float 4s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.iLab-blur{filter:var(--iLab-blur)}
+.iLab-shimmer{position:relative;overflow:hidden}
+.iLab-shimmer::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);animation:shimmer 1.5s infinite}
+@keyframes shimmer{100%{left:100%}}
+.iLab-reflect{position:relative}
+.iLab-reflect::after{content:'';position:absolute;top:100%;left:0;width:100%;height:40px;background:inherit;transform:scaleY(-1);opacity:.25;filter:var(--iLab-blur)}
+.iLab-tilt{transition:transform .3s}
+.iLab-tilt:hover{transform:perspective(1000px) rotateX(4deg) rotateY(-4deg)}

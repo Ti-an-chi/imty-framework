@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title></title>
+   <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+   
+<script type="module">
+  import { ui } from '/iLabs/modals.js';
+
+ui.toast({message:'Saved successfully!', type:'success', closable:true});
+ui.confirm({title:'Proceed?', text:'Do you want to continue?'}).then(v=>{
+  ui.toast({message:v?'User pressed OK':'Cancelled', type:v?'success':'warn'});
+});
+ui.prompt({title:'Your name', text:'Enter name:'}).then(v=>{
+  if(v) ui.toast({message:`Hello ${v}`, type:'info'});
+});
+ui.loading(true, 'Processing...');
+setTimeout(()=>ui.loading(false),2000);
+</script>
+</body>
+
+</html>
